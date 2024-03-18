@@ -1,9 +1,8 @@
-# Basert på https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 name: Python-tester for øving 8. Januar
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - jan8/**
 
@@ -28,7 +27,7 @@ jobs:
       env:
         CONNSTR: ${{ secrets.CONNSTR }} # Use the CONNSTR secret
       run: |
-        echo "CONNSTR: $CONNSTR" # Print out the value of CONNSTR
+        echo "CONNSTR: $CONNSTR" # Print out the value of CONNSTR for debugging
         pip install pytest==7.4.4
         pytest
       working-directory: jan8

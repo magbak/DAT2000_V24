@@ -1,3 +1,4 @@
+#Basert på https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 name: Python-tester for øving 8. Januar
 
 on:
@@ -9,13 +10,6 @@ on:
 jobs:
   test_jan8:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_PASSWORD: mysecretpassword
-        ports:
-          - 5432:5432
     steps:
     - uses: actions/checkout@v4
     - name: Start postgresql
@@ -31,10 +25,7 @@ jobs:
         pip install -r requirements.txt
       working-directory: jan8
     - name: Test with pytest
-      env:
-        CONNSTR: ${{ secrets.DB_CONNSTR }} # Use the DB_CONNSTR secret
       run: |
         pip install pytest==7.4.4
-        echo "CONNSTR='$CONNSTR'" > db.env  
         pytest
       working-directory: jan8

@@ -28,6 +28,7 @@ jobs:
       env:
         CONNSTR: ${{ secrets.CONNSTR }} # Use the CONNSTR secret
       run: |
+        echo "CONNSTR: $CONNSTR" # Print out the value of CONNSTR
         pip install pytest==7.4.4
         pytest
       working-directory: jan8

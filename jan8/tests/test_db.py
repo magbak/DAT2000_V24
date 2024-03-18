@@ -3,7 +3,7 @@ import os
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, insert
 from jan8.hent_data import Beatles
 
-CONNSTR = os.getenv("CONNSTR")
+CONNSTR = os.environ("CONNSTR")
 
 @pytest.fixture()
 def engine():

@@ -1,12 +1,10 @@
 import pytest
-import dotenv
 import os
 
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, insert
 
 from jan8.hent_data import Beatles
 
-dotenv.load_dotenv("db.env")
 CONNSTR = os.getenv("CONNSTR")
 
 @pytest.fixture()

@@ -26,9 +26,8 @@ jobs:
       working-directory: jan8
     - name: Test with pytest
       env:
-        CONNSTR: ${{ secrets.CONNSTR }}
+        CONNSTR: ${{ secrets.DB_CONNSTR }}
       run: |
-        echo "CONNSTR: $CONNSTR" # Print out the value of CONNSTR
         pip install pytest==7.4.4
         pytest
       working-directory: jan8

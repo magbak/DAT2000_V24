@@ -25,6 +25,8 @@ jobs:
         pip install -r requirements.txt
       working-directory: jan8
     - name: Test with pytest
+      env:
+        CONNSTR: ${{ secrets.DB_CONNSTR }} # Use the DB_CONNSTR secret
       run: |
         pip install pytest==7.4.4
         pytest

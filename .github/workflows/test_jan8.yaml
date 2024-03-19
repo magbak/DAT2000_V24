@@ -1,8 +1,9 @@
+#Basert på https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 name: Python-tester for øving 8. Januar
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - jan8/**
 
@@ -24,8 +25,6 @@ jobs:
         pip install -r requirements.txt
       working-directory: jan8
     - name: Test with pytest
-      env:
-        CONNSTR: ${{ secrets.CONNSTR }} # Use the CONNSTR secret
       run: |
         pip install pytest==7.4.4
         pytest

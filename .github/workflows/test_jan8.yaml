@@ -24,6 +24,11 @@ jobs:
       run: |
         pip install -r requirements.txt
       working-directory: jan8
+    - name: Set up DB Connection
+      env:
+          CONN_STR: ${{ secrets.DB_CONN_STR }}
+      run: |
+        echo "CONNSTR=${DB_CONN_STR}" > db.env
     - name: Test with pytest
       run: |
         pip install pytest==7.4.4
